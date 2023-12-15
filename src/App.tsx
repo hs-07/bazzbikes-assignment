@@ -20,7 +20,7 @@ const App = () => {
   });
 
   return (
-    <div>
+    <div className="flex items-center flex-col">
       <Search />
       <Table />
     </div>
