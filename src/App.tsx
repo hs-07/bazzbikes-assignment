@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { Table, Search } from "./components";
 import { GetData } from "./middleware/api";
 import { DataType } from "./types";
@@ -17,12 +20,11 @@ const App = () => {
         setFilteredData(dataArray);
         setData(dataArray);
         setIsLoading(false);
-        console.log(data);
       } else {
-        console.log("error");
+        toast.warning("Unable to load data");
       }
     } catch (error) {
-      console.log(error);
+      toast.error("Error");
     }
   };
 
@@ -45,6 +47,7 @@ const App = () => {
     <div className="flex items-center flex-col">
       <Search onSearch={handleSearch} />
       {isLoading ? <p>Loading...</p> : <Table rows={filteredData} />}
+      <ToastContainer />
     </div>
   );
 };
