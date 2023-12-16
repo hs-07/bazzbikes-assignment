@@ -103,17 +103,6 @@ function TablePaginationActions(props: TablePaginationActionsProps) {
   );
 }
 
-// function createData(id: string, imei: number, owner: number, soc: number) {
-//   return { id, imei, owner, soc };
-// }
-
-// const rows = [
-//   createData("Cupcake", 305, 3.7, 3.7),
-//   createData("Donut", 452, 25.0, 25.0),
-//   createData("Eclair", 262, 16.0, 16.0),
-//   createData("Frozen yoghurt", 159, 6.0, 6.0),
-// ].sort((a, b) => (a.id < b.id ? -1 : 1));
-
 const CustomPaginationActionsTable: React.FC<TableProps> = ({ rows }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -156,6 +145,7 @@ const CustomPaginationActionsTable: React.FC<TableProps> = ({ rows }) => {
   return (
     <TableContainer component={Paper} className="p-2">
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+        {/* Head starts */}
         <TableHead>
           <StyledTableRow>
             <StyledTableCell align="center">BATTERY ID</StyledTableCell>
@@ -164,6 +154,7 @@ const CustomPaginationActionsTable: React.FC<TableProps> = ({ rows }) => {
             <StyledTableCell align="center">CURRENT OWNER | ID</StyledTableCell>
           </StyledTableRow>
         </TableHead>
+        {/* Body starts */}
         <TableBody>
           {(rowsPerPage > 0
             ? tableRows.slice(
@@ -193,6 +184,7 @@ const CustomPaginationActionsTable: React.FC<TableProps> = ({ rows }) => {
             </StyledTableRow>
           )}
         </TableBody>
+        {/* Footer Starts */}
         <TableFooter>
           <TableRow>
             <TablePagination
